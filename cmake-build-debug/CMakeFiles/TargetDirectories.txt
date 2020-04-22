@@ -1,0 +1,3 @@
+C:/Users/danoc/CLionProjects/assignment2_19448622/cmake-build-debug/CMakeFiles/Focus.dir
+C:/Users/danoc/CLionProjects/assignment2_19448622/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/danoc/CLionProjects/assignment2_19448622/cmake-build-debug/CMakeFiles/rebuild_cache.dir
