@@ -109,3 +109,10 @@ void initialize_board(square board [BOARD_SIZE][BOARD_SIZE])
 
 }
 
+void instructions()
+{
+    printf("THE RULES ARE:\nEACH PLAYER TAKES TURNS MOVING/PLACING PIECES\n");
+    printf("TO SELECT SQUARES ON THE BOARD, GIVE INPUT AS CO ORDINATE FORM, 1-8 ACROSS FOLLOWED BY 1-8 DOWN\n");
+    printf("YOU LOSE WHEN YOU CANNOT PLACE A PIECE OR MOVE A STACK\n");
+    printf("ENJOY\n");
+}

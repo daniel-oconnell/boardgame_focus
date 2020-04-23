@@ -13,6 +13,7 @@ int main()
     player players[PLAYERS_NUM];
     square board[BOARD_SIZE][BOARD_SIZE];
     printf("WELCOME TO FOCUS\n");
+    instructions();
     initialize_players(players);
     initialize_board(board);
     print_board(board);
