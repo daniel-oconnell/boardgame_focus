@@ -20,6 +20,7 @@ int main()
     while(not_ended == 1)
     {
         not_ended = make_turn(players[(count%2)], board);    //player count mod 2 should be loser
+        print_board(board);
         count++;
     }
     return 0;

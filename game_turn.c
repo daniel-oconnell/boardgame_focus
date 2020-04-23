@@ -41,10 +41,10 @@ int make_turn(player p_turn, square board[][BOARD_SIZE])
                 switch (choice)    //calls correct functions according to choice
                 {
                     case 1:
-                        place_piece(p_turn);
+                        place_piece(p_turn, board);
                         break;
                     case 2:
-                        move_stack(p_turn);
+                        move_stack(p_turn, board);
                         break;
                     default:
                         printf("INVALID\n");    //error message
@@ -55,12 +55,12 @@ int make_turn(player p_turn, square board[][BOARD_SIZE])
         else if (p_turn.own_kpt > 0 && has_stack == false)    //if they can only place a piece
         {
             printf("YOU HAVE NO PIECES ON THE BOARD, AND MUST PLACE A PIECE\n");
-            place_piece(p_turn);    //calls correct function
+            place_piece(p_turn, board);    //calls correct function
         }
         else if (p_turn.own_kpt == 0 && has_stack == true)     //if they can only move a piece
         {
             printf("MOVE A PIECE\n");
-            move_stack(p_turn);    //calls correct function
+            move_stack(p_turn, board);    //calls correct function
         }
         return 1;    //returns 1 to indicate that the player was able to take a turn
     }    //ends conditional for if player can take a turn
@@ -68,13 +68,25 @@ int make_turn(player p_turn, square board[][BOARD_SIZE])
         return 0;   //return 0 to indicate a player can no longer make a move, and loses
 }
 
-void move_stack(player p_turn)
+void move_stack(player p_turn, square board[][BOARD_SIZE])
 {
 
 }
 
-void place_piece(player p_turn)
+void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to place a piece on an empty square of the board
 {
-
+    int x=0,y=0;
+    do
+        {
+        printf("WHERE DO YOU WANT TO PLACE YOUR PIECE\n");    //gets user input
+        scanf("%d %d", x, y);
+        if (board[x - 1][y - 1].type == VALID && board[x][y].num_pieces == 0)    //if on an emptty valid square
+        {
+            board[x-1][y-1].num_pieces =1;
+            board[x-1][y-1].stack->p_color = p_turn.player_color;    //adds a piece of the players colour to the square
+        }
+        else
+            printf("INVALID CHOICE\n");    //invalid choice
+    }while(board[x-1][y-1].type != VALID || board[x][y].num_pieces != 0);    //loops ig not a valid square to place a piece on 
 }
 

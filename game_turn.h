@@ -11,6 +11,6 @@
 
 int make_turn(player p_turn, square board[][BOARD_SIZE]);
 
-void move_stack(player p_turn);
+void move_stack(player p_turn, square board[][BOARD_SIZE]);
 
-void place_piece(player p_turn);
+void place_piece(player p_turn, square board[][BOARD_SIZE]);
