@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/danoc/CLionProjects/assignment2_19448622/game_init.c" "C:/Users/danoc/CLionProjects/assignment2_19448622/cmake-build-debug/CMakeFiles/Focus.dir/game_init.c.obj"
-  "C:/Users/danoc/CLionProjects/assignment2_19448622/game_turn.c" "C:/Users/danoc/CLionProjects/assignment2_19448622/cmake-build-debug/CMakeFiles/Focus.dir/game_turn.c.obj"
-  "C:/Users/danoc/CLionProjects/assignment2_19448622/input_output.c" "C:/Users/danoc/CLionProjects/assignment2_19448622/cmake-build-debug/CMakeFiles/Focus.dir/input_output.c.obj"
-  "C:/Users/danoc/CLionProjects/assignment2_19448622/main.c" "C:/Users/danoc/CLionProjects/assignment2_19448622/cmake-build-debug/CMakeFiles/Focus.dir/main.c.obj"
+  "C:/Users/danoc/boardgame_focus/game_init.c" "C:/Users/danoc/boardgame_focus/cmake-build-debug/CMakeFiles/Focus.dir/game_init.c.obj"
+  "C:/Users/danoc/boardgame_focus/game_turn.c" "C:/Users/danoc/boardgame_focus/cmake-build-debug/CMakeFiles/Focus.dir/game_turn.c.obj"
+  "C:/Users/danoc/boardgame_focus/input_output.c" "C:/Users/danoc/boardgame_focus/cmake-build-debug/CMakeFiles/Focus.dir/input_output.c.obj"
+  "C:/Users/danoc/boardgame_focus/main.c" "C:/Users/danoc/boardgame_focus/cmake-build-debug/CMakeFiles/Focus.dir/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

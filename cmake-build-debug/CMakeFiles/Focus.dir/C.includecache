@@ -6,21 +6,35 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/danoc/CLionProjects/assignment2_19448622/game_init.h
+C:/Users/danoc/boardgame_focus/game_init.c
+stdio.h
+-
+stdlib.h
+-
+game_init.h
+C:/Users/danoc/boardgame_focus/game_init.h
 
-C:/Users/danoc/CLionProjects/assignment2_19448622/game_turn.c
+C:/Users/danoc/boardgame_focus/game_init.h
+
+C:/Users/danoc/boardgame_focus/game_turn.c
 game_turn.h
-C:/Users/danoc/CLionProjects/assignment2_19448622/game_turn.h
+C:/Users/danoc/boardgame_focus/game_turn.h
 stdio.h
 -
 stdbool.h
-C:/Users/danoc/CLionProjects/assignment2_19448622/stdbool.h
+C:/Users/danoc/boardgame_focus/stdbool.h
 
-C:/Users/danoc/CLionProjects/assignment2_19448622/game_turn.h
+C:/Users/danoc/boardgame_focus/game_turn.h
 input_output.h
-C:/Users/danoc/CLionProjects/assignment2_19448622/input_output.h
+C:/Users/danoc/boardgame_focus/input_output.h
 
-C:/Users/danoc/CLionProjects/assignment2_19448622/input_output.h
+C:/Users/danoc/boardgame_focus/input_output.h
 game_init.h
-C:/Users/danoc/CLionProjects/assignment2_19448622/game_init.h
+C:/Users/danoc/boardgame_focus/game_init.h
+
+C:/Users/danoc/boardgame_focus/main.c
+stdio.h
+-
+game_turn.h
+C:/Users/danoc/boardgame_focus/game_turn.h
 
