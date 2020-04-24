@@ -139,15 +139,15 @@ void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to pla
     do
         {
         printf("WHERE DO YOU WANT TO PLACE YOUR PIECE\n");    //gets user input
-        scanf("%d%d", x, y);
-        if (board[x - 1][y - 1].type == VALID && board[x][y].num_pieces == 0)    //if on an emptty valid square
+        scanf("%d%d", &x, &y);
+        if (board[y - 1][x - 1].type == VALID && board[y-1][x-1].num_pieces == 0)    //if on an emptty valid square
         {
-            board[x-1][y-1].num_pieces =1;
-            board[x-1][y-1].stack->p_color = p_turn.player_color;    //adds a piece of the players colour to the square
+            board[y-1][x-1].num_pieces =1;
+            board[y-1][x-1].stack->p_color = p_turn.player_color;    //adds a piece of the players colour to the square
         }
         else
-            printf("INVALID CHOICE\n");    //invalid choice
-    }while(board[x-1][y-1].type != VALID || board[x][y].num_pieces != 0);    //loops ig not a valid square to place a piece on 
+            inv();    //invalid choice
+    }while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces != 0);    //loops ig not a valid square to place a piece on
 }
 
 void inv()
