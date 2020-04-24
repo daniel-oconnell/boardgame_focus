@@ -81,24 +81,33 @@ int check_player_pieces(player p_turn, square board[][BOARD_SIZE])
 void choose_stack(player p_turn, square board[][BOARD_SIZE]) {    //need to debug
     int x = 0, y = 0;
     int newx = 0, newy = 0;
-
-    do {
+    bool is_valid1 = false;
+    bool is_same_colour1 = false;
+    bool is_valid2 = false;
+    bool is_same_colour2 = true;
+    while (!is_valid1 || !is_same_colour1)
+    {
         printf("WHICH PIECE WOULD YOU LIKE TO MOVE\n");
         scanf("%d %d\n\n\n", &x, &y);
         if (0 < x && x<9 && 0 < y && y < 9)
         {
-            if (board[y - 1][x - 1].type == VALID)
+            is_valid1 = (board[y - 1][x - 1].type == VALID);
+            if (is_valid1)
             {
-                if (board[x - 1][y - 1].stack->p_color == p_turn.player_color)
+                is_same_colour1 = (board[x - 1][y - 1].stack->p_color == p_turn.player_color);
+                if (is_same_colour1)
                 {
-                    do {
+                    while (is_same_colour2 || !is_valid2)    //doesnt loop
+                    {
                         printf("WHAT SQUARE WOULD YOU LIKE TO MOVE IT TO\n");
                         scanf("%d%d", &newx, &newy);
+                        is_valid2 = (board[newy - 1][newx - 1].type == VALID);
                         if (0 < x && x < 9 && 0 < y && y < 8)
                         {
-                            if (board[newy - 1][newx - 1].type == VALID)
+                            if (is_valid2)
                             {
-                                if (board[newy - 1][newx - 1].stack->p_color == p_turn.player_color)
+                                is_same_colour2 = (board[newy - 1][newx - 1].stack->p_color != p_turn.player_color);
+                                if (is_same_colour2)    //code stops working here
                                 {
                                     if(abs(newy-x)+abs(newx-y) == board[x-1][y-1].num_pieces)
                                     {
@@ -123,7 +132,7 @@ void choose_stack(player p_turn, square board[][BOARD_SIZE]) {    //need to debu
                             {
                             inv();
                         }
-                    } while (board[newy - 1][newx - 1].type != VALID || board[x - 1][y - 1].stack->p_color != p_turn.player_color);
+                    }
                 }
                 else
                     {
@@ -137,9 +146,9 @@ void choose_stack(player p_turn, square board[][BOARD_SIZE]) {    //need to debu
         }
         else
             {
-            inv();    //where the bug happens
+            inv();
         }
-    } while (board[y - 1][x - 1].type != VALID);    //if colour????
+    }
 }
 
 void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to place a piece on an empty square of the board
