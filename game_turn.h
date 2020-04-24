@@ -16,3 +16,5 @@ void choose_stack(player p_turn, square board[][BOARD_SIZE]);
 void place_piece(player p_turn, square board[][BOARD_SIZE]);
 
 void inv();
+
+void move_stack(player p_turn, square board[][BOARD_SIZE], int x1, int x2, int y1, int y2);

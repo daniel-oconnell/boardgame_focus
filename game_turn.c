@@ -48,7 +48,7 @@ int make_turn(player p_turn, square board[][BOARD_SIZE])
                         choose_stack(p_turn, board);
                         break;
                     default:
-                        printf("INVALID\n");    //error message
+                        inv();    //error message
 
                 }
             }
@@ -75,43 +75,62 @@ void choose_stack(player p_turn, square board[][BOARD_SIZE]) {
 
     do {
         printf("WHICH PIECE WOULD YOU LIKE TO MOVE\n");
-        scanf("%d%d", x, y);
-        if (0 < x < 9 && 0 < y < 8) {
-            if (board[x - 1][y - 1].type == VALID) {
-                if (board[x - 1][y - 1].stack->p_color == p_turn.player_color) {
+        scanf("%d %d\n\n\n", &x, &y);
+        if (0 < x && x<9 && 0 < y && y < 9)
+        {
+            if (board[y - 1][x - 1].type == VALID)
+            {
+                if (board[x - 1][y - 1].stack->p_color == p_turn.player_color)
+                {
                     do {
                         printf("WHAT SQUARE WOULD YOU LIKE TO MOVE IT TO\n");
-                        scanf("%d%d");
-                        if (0 < x < 9 && 0 < y < 8) {
-                            if (board[newx - 1][newy - 1].type == VALID) {
-                                if (board[newx - 1][newy - 1].stack->p_color == p_turn.player_color) {
-                                    if(abs(newx-x)+abs(newy-y) == board[x-1][y-1].num_pieces)
+                        scanf("%d%d", &newx, &newy);
+                        if (0 < x && x < 9 && 0 < y && y < 8)
+                        {
+                            if (board[newy - 1][newx - 1].type == VALID)
+                            {
+                                if (board[newy - 1][newx - 1].stack->p_color == p_turn.player_color)
+                                {
+                                    if(abs(newy-x)+abs(newx-y) == board[x-1][y-1].num_pieces)
                                     {
-
+                                        move_stack(p_turn, board, x, newx, y, newy);
                                     }
-                                    else {
+                                    else
+                                        {
                                         inv();
                                     }
-                                } else {
+                                }
+                                else
+                                    {
                                     inv();
                                 }
-                            } else {
+                            }
+                            else
+                                {
                                 inv();
                             }
-                        } else {
+                        }
+                        else
+                            {
                             inv();
                         }
-                    } while (board[newx - 1][newy - 1].type != VALID);
-                } else {
+                    } while (board[newy - 1][newx - 1].type != VALID);
+                }
+                else
+                    {
                     inv();
                 }
-            } else {
+            }
+            else
+                {
                 inv();
             }
-        } else {
-            inv();
         }
-    } while (board[x - 1][y - 1].type != VALID);
+        else
+            {
+            inv();    //where the bug happens
+        }
+    } while (board[y - 1][x - 1].type != VALID);
 }
 
 void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to place a piece on an empty square of the board
@@ -134,4 +153,9 @@ void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to pla
 void inv()
 {
     printf("INVALID CHOICE\n");
+}
+
+void move_stack(player p_turn, square board[][BOARD_SIZE], int x1, int x2, int y1, int y2)
+{
+
 }
