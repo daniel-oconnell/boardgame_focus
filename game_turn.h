@@ -11,6 +11,8 @@
 
 int make_turn(player p_turn, square board[][BOARD_SIZE]);
 
+int check_player_pieces(player p_turn, square board[][BOARD_SIZE]);
+
 void choose_stack(player p_turn, square board[][BOARD_SIZE]);
 
 void place_piece(player p_turn, square board[][BOARD_SIZE]);
