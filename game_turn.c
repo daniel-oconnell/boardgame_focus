@@ -6,6 +6,7 @@
 #include "game_turn.h"
 #include <stdio.h>
 #include "stdbool.h"
+#include <stdlib.h>
 
 int make_turn(player p_turn, square board[][BOARD_SIZE])
 {
@@ -44,7 +45,7 @@ int make_turn(player p_turn, square board[][BOARD_SIZE])
                         place_piece(p_turn, board);
                         break;
                     case 2:
-                        move_stack(p_turn, board);
+                        choose_stack(p_turn, board);
                         break;
                     default:
                         printf("INVALID\n");    //error message
@@ -60,7 +61,7 @@ int make_turn(player p_turn, square board[][BOARD_SIZE])
         else if (p_turn.own_kpt == 0 && has_stack == true)     //if they can only move a piece
         {
             printf("MOVE A PIECE\n");
-            move_stack(p_turn, board);    //calls correct function
+            choose_stack(p_turn, board);    //calls correct function
         }
         return 1;    //returns 1 to indicate that the player was able to take a turn
     }    //ends conditional for if player can take a turn
@@ -68,25 +69,49 @@ int make_turn(player p_turn, square board[][BOARD_SIZE])
         return 0;   //return 0 to indicate a player can no longer make a move, and loses
 }
 
-void move_stack(player p_turn, square board[][BOARD_SIZE])
-{
-    int x=0,y=0;
-    int newx=0, newy=0;
-    printf("WHICH PIECE WOULD YOU LIKE TO MOVE\n");
-    scanf("%d%d", x,y);
+void choose_stack(player p_turn, square board[][BOARD_SIZE]) {
+    int x = 0, y = 0;
+    int newx = 0, newy = 0;
+
     do {
-        if (board[x - 1][y - 1].type == VALID)
-        {
-            if (board[x - 1][y - 1].stack->p_color == p_turn.player_color)
-            {
-                printf("WHAT SQUARE WOULD YOU LIKE TO MOVE IT TO\n");
+        printf("WHICH PIECE WOULD YOU LIKE TO MOVE\n");
+        scanf("%d%d", x, y);
+        if (0 < x < 9 && 0 < y < 8) {
+            if (board[x - 1][y - 1].type == VALID) {
+                if (board[x - 1][y - 1].stack->p_color == p_turn.player_color) {
+                    do {
+                        printf("WHAT SQUARE WOULD YOU LIKE TO MOVE IT TO\n");
+                        scanf("%d%d");
+                        if (0 < x < 9 && 0 < y < 8) {
+                            if (board[newx - 1][newy - 1].type == VALID) {
+                                if (board[newx - 1][newy - 1].stack->p_color == p_turn.player_color) {
+                                    if(abs(newx-x)+abs(newy-y) == board[x-1][y-1].num_pieces)
+                                    {
+
+                                    }
+                                    else {
+                                        inv();
+                                    }
+                                } else {
+                                    inv();
+                                }
+                            } else {
+                                inv();
+                            }
+                        } else {
+                            inv();
+                        }
+                    } while (board[newx - 1][newy - 1].type != VALID);
+                } else {
+                    inv();
+                }
+            } else {
+                inv();
             }
+        } else {
+            inv();
         }
-        else
-        {
-            printf("INVALID CHOICE\n");
-        }
-    }while(board[x - 1][y - 1].type != VALID);
+    } while (board[x - 1][y - 1].type != VALID);
 }
 
 void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to place a piece on an empty square of the board
@@ -106,3 +131,7 @@ void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to pla
     }while(board[x-1][y-1].type != VALID || board[x][y].num_pieces != 0);    //loops ig not a valid square to place a piece on 
 }
 
+void inv()
+{
+    printf("INVALID CHOICE\n");
+}
