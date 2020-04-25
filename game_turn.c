@@ -111,16 +111,12 @@ void choose_stack(player p_turn, square board[][BOARD_SIZE]) {    //need to debu
                                 {
                                     if(abs(newy-x)+abs(newx-y) == board[x-1][y-1].num_pieces)
                                     {
-                                        move_stack(p_turn, board, x, newx, y, newy);
+                                        move_stack(p_turn, board, x-1, newx-1, y-1, newy-1);
                                     }
                                     else
                                         {
                                         inv();
                                     }
-                                }
-                                else
-                                    {
-                                    inv();
                                 }
                             }
                             else
@@ -175,5 +171,23 @@ void inv()
 
 void move_stack(player p_turn, square board[][BOARD_SIZE], int x1, int x2, int y1, int y2)
 {
-
+    int count, i;
+    board[y2][x2].num_pieces += board[y1][x1].num_pieces;
+    if(board[y2][x2].num_pieces >5)
+    {
+        count = (board[y2][x2].num_pieces-5);
+        for(i=0;i<count;i++)
+        {
+            if(i%2 == 0)
+            {
+                p_turn.adv_cap++;
+            }
+            else
+                {
+                p_turn.own_kpt++;
+            }
+        }
+        board[y2][x2].num_pieces = 5;
+    }
+    board[y1][x1].num_pieces = 0;
 }

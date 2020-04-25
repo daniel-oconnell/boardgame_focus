@@ -13,9 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9259ead4-f316-4131-bdda-77a5545a7a91" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Focus.dir/game_turn.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Focus.dir/game_turn.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Focus.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Focus.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Focus.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Focus.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_turn.c" beforeDir="false" afterPath="$PROJECT_DIR$/game_turn.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +92,7 @@
       <workItem from="1587499216908" duration="1435000" />
       <workItem from="1587581942258" duration="4124000" />
       <workItem from="1587649989806" duration="3887000" />
-      <workItem from="1587675534150" duration="10734000" />
+      <workItem from="1587675534150" duration="13014000" />
     </task>
     <servers />
   </component>
