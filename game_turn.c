@@ -156,12 +156,16 @@ void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to pla
         scanf("%d%d", &x, &y);
         if (board[y - 1][x - 1].type == VALID && board[y-1][x-1].num_pieces == 0)    //if on an emptty valid square
         {
+            piece new = {p_turn.player_color, NULL};
+            piece * top = &new;
             board[y-1][x-1].num_pieces =1;
-            board[y-1][x-1].stack->p_color = p_turn.player_color;    //adds a piece of the players colour to the square
+            top->p_color=p_turn.player_color;
+            top->next = NULL;
+            board[y-1][x-1].stack=top;    //adds a piece of the players colour to the square
         }
         else
             inv();    //invalid choice
-    }while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces != 0);    //loops ig not a valid square to place a piece on
+    }while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces == 0);    //loops ig not a valid square to place a piece on
 }
 
 void inv()
