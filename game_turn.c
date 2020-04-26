@@ -166,7 +166,7 @@ void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to pla
         else
             inv();    //invalid choice
     }while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces == 0);    //loops ig not a valid square to place a piece on
-    p_turn.own_kpt--;
+    p_turn.own_kpt--; 
 }
 
 void inv()
