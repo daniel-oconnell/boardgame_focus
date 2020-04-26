@@ -21,7 +21,9 @@ int main()
     {
         not_ended = make_turn(players[(count%2)], board);    //player count mod 2 should be loser
         print_board(board);
+        if (not_ended ==1)
         count++;
     }
+    printf("PLAYER %d: NO MOVES LEFT. YOU LOSE\n\n***PLAYER %d: YOU WIN***\n\n\n", (count%2 +1), (count+1)%2 +1);
     return 0;
 }
