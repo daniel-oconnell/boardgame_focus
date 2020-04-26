@@ -111,7 +111,7 @@ void choose_stack(player p_turn, square board[][BOARD_SIZE]) {    //need to debu
                                 {
                                     if(abs(newy-x)+abs(newx-y) == board[x-1][y-1].num_pieces)
                                     {
-                                        move_stack(p_turn, board, x-1, newx-1, y-1, newy-1);
+                                        move_stack(board, x-1, newx-1, y-1, newy-1);
                                     }
                                     else
                                         {
@@ -169,25 +169,42 @@ void inv()
     printf("INVALID CHOICE\n");
 }
 
-void move_stack(player p_turn, square board[][BOARD_SIZE], int x1, int x2, int y1, int y2)
+void move_stack(square board[][BOARD_SIZE], int x1, int x2, int y1, int y2)
 {
-    int count, i;
-    board[y2][x2].num_pieces += board[y1][x1].num_pieces;
-    if(board[y2][x2].num_pieces >5)
+    int count=1, i;
+    piece * top;
+    piece * curr;
+    piece * last = NULL;
+    piece * tmp;
+    top = board[y1][x1].stack;
+    board[y1][x1].stack = NULL;
+    board[y1][x1].num_pieces =0;
+    curr = top;
+    while(curr->next != NULL)
+        curr = curr->next;
+    curr->next = board[y2][x2].stack;
+    board[y2][x2].stack = top;
+    curr = top;
+    while(last!= curr && curr != NULL)
     {
-        count = (board[y2][x2].num_pieces-5);
-        for(i=0;i<count;i++)
+        if(count<5)
         {
-            if(i%2 == 0)
-            {
-                p_turn.adv_cap++;
-            }
-            else
-                {
-                p_turn.own_kpt++;
-            }
+            curr = curr->next;
+            count++;
+        } else{
+            last = curr;
         }
-        board[y2][x2].num_pieces = 5;
     }
-    board[y1][x1].num_pieces = 0;
+    if(last != NULL)
+    {
+        curr = curr->next;
+        while(curr != NULL)
+        {
+            tmp = curr;
+            curr = curr->next;
+            free(tmp);
+        }
+        last->next = NULL;
+    }
+    board[y2][x2].num_pieces = count;
 }
