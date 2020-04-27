@@ -14,7 +14,7 @@ int make_turn(player p_turn, square board[][BOARD_SIZE])
     if(p_turn.own_kpt>0 || has_stack == true)    //if the player can either place a piece or move a piece
     {
         printf("%s: YOUR TURN\n", p_turn.p_name);
-        if (p_turn.own_kpt > 0 && has_stack == true)    //if they can move a piece or place a piece
+        if (p_turn.own_kpt >= 1 && has_stack == true)    //if they can move a piece or place a piece
         {
             int choice=0;
             while(choice!=1 && choice !=2)    //loop while they haven't made a correct choice
@@ -156,17 +156,16 @@ void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to pla
         scanf("%d%d", &x, &y);
         if (board[y - 1][x - 1].type == VALID && board[y-1][x-1].num_pieces == 0)    //if on an emptty valid square
         {
-            piece new = {p_turn.player_color, NULL};
+            piece new = {0, NULL};
             piece * top = &new;
             board[y-1][x-1].num_pieces =1;
-            top->p_color=p_turn.player_color;
-            top->next = NULL;
             board[y-1][x-1].stack=top;    //adds a piece of the players colour to the square
+            board[y-1][x-1].stack->p_color = p_turn.player_color;
         }
         else
             inv();    //invalid choice
     }while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces == 0);    //loops ig not a valid square to place a piece on
-    p_turn.own_kpt--;
+    p_turn.own_kpt-=1;
 }
 
 void inv()

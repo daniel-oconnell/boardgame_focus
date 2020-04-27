@@ -29,7 +29,8 @@ void print_board(square board[BOARD_SIZE][BOARD_SIZE])
                 else{
                     if (board[i][j].stack->p_color == GREEN)
                         printf("| G");
-                    else printf("| R");
+                    else
+                        printf("| R");
                     printf("(%d)", board[i][j].num_pieces);
                 }
             }
