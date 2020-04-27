@@ -5,22 +5,22 @@
 #include <stdio.h>
 #include "game_turn.h"
 
+
 int main()
 {
     int not_ended=1;
     int count=0;
     // declaration of the players and the board
     player players[PLAYERS_NUM];
-    square board[BOARD_SIZE][BOARD_SIZE];
     printf("WELCOME TO FOCUS\n");
     instructions();
     initialize_players(players);
-    initialize_board(board);
-    print_board(board);
+    initialize_board();
+    print_board();
     while(not_ended == 1)
     {
-        not_ended = make_turn(players[(count%2)], board);    //player count mod 2 should be loser
-        print_board(board);
+        player *p_turn = &players[(count%2)];
+        not_ended = make_turn(p_turn);    //player count mod 2 should be loser
         if (not_ended ==1)
         count++;
     }

@@ -8,13 +8,13 @@
 #include "stdbool.h"
 #include <stdlib.h>
 
-int make_turn(player p_turn, square board[][BOARD_SIZE])
+int make_turn(player *p_turn)
 {
-    bool has_stack = check_player_pieces(p_turn, board);    //boolean to check if the player has a stack
-    if(p_turn.own_kpt>0 || has_stack == true)    //if the player can either place a piece or move a piece
+    bool has_stack = check_player_pieces(p_turn);    //boolean to check if the player has a stack
+    if(p_turn->own_kpt>0 || has_stack == true)    //if the player can either place a piece or move a piece
     {
-        printf("%s: YOUR TURN\n", p_turn.p_name);
-        if (p_turn.own_kpt >= 1 && has_stack == true)    //if they can move a piece or place a piece
+        printf("%s: YOUR TURN\n", p_turn->p_name);
+        if (p_turn->own_kpt >= 1 && has_stack == true)    //if they can move a piece or place a piece
         {
             int choice=0;
             while(choice!=1 && choice !=2)    //loop while they haven't made a correct choice
@@ -24,10 +24,10 @@ int make_turn(player p_turn, square board[][BOARD_SIZE])
                 switch (choice)    //calls correct functions according to choice
                 {
                     case 1:
-                        place_piece(p_turn, board);
+                        place_piece(p_turn);
                         break;
                     case 2:
-                        choose_stack(p_turn, board);
+                        choose_stack(p_turn);
                         break;
                     default:
                         inv();    //error message
@@ -35,15 +35,15 @@ int make_turn(player p_turn, square board[][BOARD_SIZE])
                 }
             }
         }    //ends condition for choosing
-        else if (p_turn.own_kpt > 0 && has_stack == false)    //if they can only place a piece
+        else if (p_turn->own_kpt > 0 && has_stack == false)    //if they can only place a piece
         {
             printf("YOU HAVE NO PIECES ON THE BOARD, AND MUST PLACE A PIECE\n");
-            place_piece(p_turn, board);    //calls correct function
+            place_piece(p_turn);    //calls correct function
         }
-        else if (p_turn.own_kpt == 0 && has_stack == true)     //if they can only move a piece
+        else if (p_turn->own_kpt == 0 && has_stack == true)     //if they can only move a piece
         {
             printf("MOVE A PIECE\n");
-            choose_stack(p_turn, board);    //calls correct function
+            choose_stack(p_turn);    //calls correct function
         }
         return 1;    //returns 1 to indicate that the player was able to take a turn
     }    //ends conditional for if player can take a turn
@@ -51,7 +51,7 @@ int make_turn(player p_turn, square board[][BOARD_SIZE])
         return 0;   //return 0 to indicate a player can no longer make a move, and loses
 }
 
-int check_player_pieces(player p_turn, square board[][BOARD_SIZE])
+int check_player_pieces(player *p_turn)
 {
     bool has_stack=false;    //boolean to check if the player has a stack
     int i,j;
@@ -62,7 +62,7 @@ int check_player_pieces(player p_turn, square board[][BOARD_SIZE])
         {
             if(board[i][j].num_pieces >0)    //if the square has a piece
             {
-                if (board[i][j].stack->p_color == p_turn.player_color)    //if the piece is the players colour
+                if (board[i][j].stack->p_color == p_turn->player_color)    //if the piece is the players colour
                 {
                     has_stack = true;
                     break;    //exits the loop
@@ -78,7 +78,8 @@ int check_player_pieces(player p_turn, square board[][BOARD_SIZE])
         return 0;
 }
 
-void choose_stack(player p_turn, square board[][BOARD_SIZE]) {    //need to debug
+void choose_stack(player *p_turn)
+{    //need to debug
     int x = 0, y = 0;
     int newx = 0, newy = 0;
     bool is_valid1 = false;
@@ -94,7 +95,7 @@ void choose_stack(player p_turn, square board[][BOARD_SIZE]) {    //need to debu
             is_valid1 = (board[y - 1][x - 1].type == VALID);
             if (is_valid1)
             {
-                is_same_colour1 = (board[x - 1][y - 1].stack->p_color == p_turn.player_color);
+                is_same_colour1 = (board[x - 1][y - 1].stack->p_color == p_turn->player_color);
                 if (is_same_colour1)
                 {
                     while (is_same_colour2 || !is_valid2)    //doesnt loop
@@ -106,12 +107,12 @@ void choose_stack(player p_turn, square board[][BOARD_SIZE]) {    //need to debu
                         {
                             if (is_valid2)
                             {
-                                is_same_colour2 = (board[newy - 1][newx - 1].stack->p_color != p_turn.player_color);
+                                is_same_colour2 = (board[newy - 1][newx - 1].stack->p_color != p_turn->player_color);
                                 if (is_same_colour2)    //code stops working here
                                 {
                                     if(abs(newy-x)+abs(newx-y) == board[x-1][y-1].num_pieces)
                                     {
-                                        move_stack(board, x-1, newx-1, y-1, newy-1);
+                                        move_stack(x-1, newx-1, y-1, newy-1);
                                     }
                                     else
                                         {
@@ -147,7 +148,7 @@ void choose_stack(player p_turn, square board[][BOARD_SIZE]) {    //need to debu
     }
 }
 
-void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to place a piece on an empty square of the board
+void place_piece(player *p_turn)    //function to place a piece on an empty square of the board
 {
     int x=0,y=0;
     do
@@ -160,12 +161,12 @@ void place_piece(player p_turn, square board[][BOARD_SIZE])    //function to pla
             piece * top = &new;
             board[y-1][x-1].num_pieces =1;
             board[y-1][x-1].stack=top;    //adds a piece of the players colour to the square
-            board[y-1][x-1].stack->p_color = p_turn.player_color;
+            board[y-1][x-1].stack->p_color = p_turn->player_color;
         }
         else
             inv();    //invalid choice
     }while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces == 0);    //loops ig not a valid square to place a piece on
-    p_turn.own_kpt-=1;
+    p_turn->own_kpt-=1;
 }
 
 void inv()
@@ -173,7 +174,7 @@ void inv()
     printf("INVALID CHOICE\n");
 }
 
-void move_stack(square board[][BOARD_SIZE], int x1, int x2, int y1, int y2)
+void move_stack(int x1, int x2, int y1, int y2)
 {
     int count=1, i;
     piece * top;

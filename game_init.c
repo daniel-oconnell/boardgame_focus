@@ -72,7 +72,7 @@ s->num_pieces = 1;
 }
 
 //initializes the board
-void initialize_board(square board [BOARD_SIZE][BOARD_SIZE])
+void initialize_board()
 {
 
     for(int i=0; i< BOARD_SIZE; i++)
