@@ -113,7 +113,7 @@ void choose_stack(player *p_turn)
                                 {
                                     if(abs(newy-x)+abs(newx-y) == board[x-1][y-1].num_pieces)
                                     {
-                                        move_stack(x-1, newx-1, y-1, newy-1);
+                                        move_stack(p_turn, x-1, newx-1, y-1, newy-1);
                                     }
                                     else
                                         {
@@ -175,7 +175,7 @@ void inv()
     printf("INVALID CHOICE\n");
 }
 
-void move_stack(int x1, int x2, int y1, int y2)
+void move_stack(player *p_turn, int x1, int x2, int y1, int y2)
 {
     int count=1, i;
     piece * top;
@@ -206,6 +206,10 @@ void move_stack(int x1, int x2, int y1, int y2)
         curr = curr->next;
         while(curr != NULL)
         {
+            if(curr->p_color == p_turn->player_color)
+                p_turn->own_kpt++;
+            else
+                p_turn->adv_cap++;
             tmp = curr;
             curr = curr->next;
             free(tmp);

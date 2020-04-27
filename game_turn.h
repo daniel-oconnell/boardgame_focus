@@ -19,4 +19,4 @@ void place_piece(player *p_turn);
 
 void inv();
 
-void move_stack( int x1, int x2, int y1, int y2);
+void move_stack(player *p_turn, int x1, int x2, int y1, int y2);
