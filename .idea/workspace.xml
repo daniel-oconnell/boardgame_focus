@@ -12,13 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9259ead4-f316-4131-bdda-77a5545a7a91" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Focus.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Focus.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_init.c" beforeDir="false" afterPath="$PROJECT_DIR$/game_init.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_init.h" beforeDir="false" afterPath="$PROJECT_DIR$/game_init.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_turn.c" beforeDir="false" afterPath="$PROJECT_DIR$/game_turn.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_turn.h" beforeDir="false" afterPath="$PROJECT_DIR$/game_turn.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output.c" beforeDir="false" afterPath="$PROJECT_DIR$/input_output.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output.h" beforeDir="false" afterPath="$PROJECT_DIR$/input_output.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,26 +112,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587724910612" />
-    <state width="1493" height="192" key="GridCell.Tab.0.bottom" timestamp="1587995528809">
+    <state width="1493" height="192" key="GridCell.Tab.0.bottom" timestamp="1588006076987">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587995528809" />
-    <state width="1493" height="192" key="GridCell.Tab.0.center" timestamp="1587995528809">
+    <state width="1493" height="192" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588006076987" />
+    <state width="1493" height="192" key="GridCell.Tab.0.center" timestamp="1588006076987">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587995528809" />
-    <state width="1493" height="192" key="GridCell.Tab.0.left" timestamp="1587995528809">
+    <state width="1493" height="192" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588006076987" />
+    <state width="1493" height="192" key="GridCell.Tab.0.left" timestamp="1588006076986">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587995528809" />
-    <state width="1493" height="192" key="GridCell.Tab.0.right" timestamp="1587995528809">
+    <state width="1493" height="192" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588006076986" />
+    <state width="1493" height="192" key="GridCell.Tab.0.right" timestamp="1588006076987">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587995528809" />
+    <state width="1493" height="192" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588006076987" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1587992101063">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587992101063" />
+    <state x="410" y="28" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588005437912">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="410" y="28" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1588005437912" />
     <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1587919428208">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

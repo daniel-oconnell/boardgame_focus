@@ -45,6 +45,7 @@ int make_turn(player *p_turn)
             printf("MOVE A PIECE\n");
             choose_stack(p_turn);    //calls correct function
         }
+        print_board();
         return 1;    //returns 1 to indicate that the player was able to take a turn
     }    //ends conditional for if player can take a turn
     else
@@ -150,22 +151,22 @@ void choose_stack(player *p_turn)
 
 void place_piece(player *p_turn)    //function to place a piece on an empty square of the board
 {
-    int x=0,y=0;
-    do
+    int x=1,y=1;
+    while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces == 0)    //loops ig not a valid square to place a piece on
         {
         printf("WHERE DO YOU WANT TO PLACE YOUR PIECE\n");    //gets user input
         scanf("%d%d", &x, &y);
-        if (board[y - 1][x - 1].type == VALID && board[y-1][x-1].num_pieces == 0)    //if on an emptty valid square
+        if (board[y - 1][x - 1].type == VALID && board[y-1][x-1].num_pieces == 0)    //if on an empty valid square
         {
-            piece new = {0, NULL};
-            piece * top = &new;
-            board[y-1][x-1].num_pieces =1;
-            board[y-1][x-1].stack=top;    //adds a piece of the players colour to the square
-            board[y-1][x-1].stack->p_color = p_turn->player_color;
+            square *curr = &board[y-1][x-1];
+            if (p_turn->player_color == GREEN)
+                set_green(curr);
+            else
+                set_red(curr);
         }
         else
             inv();    //invalid choice
-    }while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces == 0);    //loops ig not a valid square to place a piece on
+    }while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces == 0)    //loops ig not a valid square to place a piece on
     p_turn->own_kpt-=1;
 }
 
@@ -182,8 +183,8 @@ void move_stack(int x1, int x2, int y1, int y2)
     piece * last = NULL;
     piece * tmp;
     top = board[y1][x1].stack;
-    board[y1][x1].stack = NULL;
-    board[y1][x1].num_pieces =0;
+    square *remove = &board[y1][x1];
+    set_empty(remove);
     curr = top;
     while(curr->next != NULL)
         curr = curr->next;

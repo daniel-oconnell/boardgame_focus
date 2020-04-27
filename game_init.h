@@ -77,6 +77,12 @@ void initialize_board();
 
 void instructions();
 
+void set_green(square *s);
+
+void set_red(square *s);
+
+void set_empty(square * s);
+
 square board[BOARD_SIZE][BOARD_SIZE];
 
 

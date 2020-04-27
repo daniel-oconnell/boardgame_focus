@@ -19,7 +19,7 @@ void initialize_players(player players[PLAYERS_NUM])
         fgets(players[i].p_name, 10, stdin);
         players[i].player_color = i;
         players[i].adv_cap = 0;
-        players[i].own_kpt = 0;
+        players[i].own_kpt = 1;
         if(players[i].player_color ==0)
         {
             printf("YOUR COLOUR IS: RED\n");
