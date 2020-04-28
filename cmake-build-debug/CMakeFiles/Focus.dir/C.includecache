@@ -6,33 +6,9 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/danoc/boardgame_focus/game_init.c
-stdio.h
--
-stdlib.h
--
-game_init.h
 C:/Users/danoc/boardgame_focus/game_init.h
 
-C:/Users/danoc/boardgame_focus/game_init.h
-
-C:/Users/danoc/boardgame_focus/game_turn.c
-game_turn.h
 C:/Users/danoc/boardgame_focus/game_turn.h
-stdio.h
--
-stdbool.h
-C:/Users/danoc/boardgame_focus/stdbool.h
-stdlib.h
--
-
-C:/Users/danoc/boardgame_focus/game_turn.h
-input_output.h
-C:/Users/danoc/boardgame_focus/input_output.h
-
-C:/Users/danoc/boardgame_focus/input_output.c
-stdio.h
--
 input_output.h
 C:/Users/danoc/boardgame_focus/input_output.h
 
