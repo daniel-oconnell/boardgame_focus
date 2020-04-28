@@ -1,6 +1,6 @@
 
 //
-// Created by Lili on 24/03/2020.
+// Created by daniel oconnell
 //
 
 #ifndef FOCUS_INPUT_OUTPUT_H
@@ -12,3 +12,5 @@
 
 //Function to print the board
 void print_board();
+
+void inv();

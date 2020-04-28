@@ -1,6 +1,6 @@
 //
-// Created by danoc on 20/04/2020.
-// Function: to implement the turn taking functionality for the focus board game
+// Created by daniel oconnell: date of completion, April 28th 2020
+// Function: to implement the turn taking functionality for the focus board game, ie the game logic
 //
 
 #include "game_turn.h"
@@ -70,19 +70,19 @@ int check_player_pieces(player *p_turn)
                 }
             }
         }
-        if (has_stack == true)
+        if (has_stack == true)    //exits loop
             break;
     }
     if(has_stack == true)
-        return 1;
+        return 1;    //returns true or false
     else
         return 0;
 }
 
-void choose_stack(player *p_turn)
+void choose_stack(player *p_turn)    //function for the user to choose a stack to move
 {    //need to debug
     int x = 0, y = 0;
-    int newx = 0, newy = 0;
+    int newx = 0, newy = 0;     //declaring variables
     bool is_valid1 = false;
     bool is_same_colour1 = false;
     bool is_valid2 = false;
@@ -90,7 +90,7 @@ void choose_stack(player *p_turn)
     while (!is_valid1 || !is_same_colour1)
     {
         printf("WHICH PIECE WOULD YOU LIKE TO MOVE\n");
-        scanf("%d %d\n\n\n", &x, &y);
+        scanf("%d%d", &x, &y);
         if (0 < x && x<9 && 0 < y && y < 9)
         {
             is_valid1 = (board[y - 1][x - 1].type == VALID);
@@ -152,7 +152,7 @@ void choose_stack(player *p_turn)
 void place_piece(player *p_turn)    //function to place a piece on an empty square of the board
 {
     int x=1,y=1;
-    while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces == 0)    //loops ig not a valid square to place a piece on
+    while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces != 0)    //loops ig not a valid square to place a piece on
         {
         printf("WHERE DO YOU WANT TO PLACE YOUR PIECE\n");    //gets user input
         scanf("%d%d", &x, &y);
@@ -163,58 +163,58 @@ void place_piece(player *p_turn)    //function to place a piece on an empty squa
                 set_green(curr);
             else
                 set_red(curr);
+            break;
         }
         else
             inv();    //invalid choice
-    }while(board[y-1][x-1].type != VALID || board[y-1][x-1].num_pieces == 0)    //loops ig not a valid square to place a piece on
+    }
     p_turn->own_kpt-=1;
 }
 
-void inv()
+void move_stack(player *p_turn, int x1, int x2, int y1, int y2)    //function to move a stack
 {
-    printf("INVALID CHOICE\n");
-}
-
-void move_stack(player *p_turn, int x1, int x2, int y1, int y2)
-{
-    int count=1, i;
+    int count=1;    //declaring variables
     piece * top;
     piece * curr;
     piece * last = NULL;
     piece * tmp;
-    top = board[y1][x1].stack;
+    top = board[y1][x1].stack;    //make top = the top piece of the moved stack
     square *remove = &board[y1][x1];
-    set_empty(remove);
+    set_empty(remove);    //set the old square as empty
     curr = top;
-    while(curr->next != NULL)
+    while(curr->next != NULL)    //step to the last piece of the stack
+    {
         curr = curr->next;
-    curr->next = board[y2][x2].stack;
-    board[y2][x2].stack = top;
+    }
+    curr->next = board[y2][x2].stack;    //the last piece's next piece becomes the moved to'd stacks top piece
+    board[y2][x2].stack = top;    //the top piece becomes the top piece of the moved stack
     curr = top;
     while(last!= curr && curr != NULL)
     {
         if(count<5)
         {
-            curr = curr->next;
+            curr = curr->next;    //steps to the 5th piece
             count++;
-        } else{
+        }
+        else
+            {
             last = curr;
         }
     }
     if(last != NULL)
     {
-        curr = curr->next;
-        while(curr != NULL)
+        curr = curr->next;   //from the 6th piece
+        while(curr != NULL)    //while the list hasn't ended
         {
-            if(curr->p_color == p_turn->player_color)
+            if(curr->p_color == p_turn->player_color)      //adds pieces to right counts
                 p_turn->own_kpt++;
             else
                 p_turn->adv_cap++;
             tmp = curr;
-            curr = curr->next;
+            curr = curr->next;    //steps to next piece and frees memory
             free(tmp);
         }
-        last->next = NULL;
+        last->next = NULL;    //makes the 5last piece's next piece null
     }
-    board[y2][x2].num_pieces = count;
+    board[y2][x2].num_pieces = count;    //the number of pieces becomes count;
 }

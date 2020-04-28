@@ -3,24 +3,25 @@
 //
 
 //
-// Created by Lili on 24/03/2020.
+// Created by daniel oconnell: date of completion, April 28th 2020
+// function: to initialise the game focus, ie the board and players
 //
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "game_init.h"
 
-void initialize_players(player players[PLAYERS_NUM])
+void initialize_players(player players[PLAYERS_NUM])    //function to initialise the players
 {
     int i;
-    for(i=0;i<PLAYERS_NUM;i++)
+    for(i=0;i<PLAYERS_NUM;i++)    //for each player
     {
         printf("PLAYER %d: ENTER NAME (10 CHARACTERS OR LESS)\n", i+1);
-        fgets(players[i].p_name, 10, stdin);
+        fgets(players[i].p_name, 10, stdin);   //reads in player name and sets attributes for that player
         players[i].player_color = i;
         players[i].adv_cap = 0;
-        players[i].own_kpt = 1;
-        if(players[i].player_color ==0)
+        players[i].own_kpt = 0;
+        if(players[i].player_color ==0)    //sets correct colour
         {
             printf("YOUR COLOUR IS: RED\n");
         }
@@ -30,9 +31,6 @@ void initialize_players(player players[PLAYERS_NUM])
         }
     }
     printf("\n\n\n\n");
-
-    // implement here the functionality to initialize the players
-
 }
 
 //Set Invalid Squares (where it is not possible to place stacks)
@@ -109,10 +107,10 @@ void initialize_board()
 
 }
 
-void instructions()
+void instructions()    //function to print the instructions for the players
 {
     printf("THE RULES ARE:\nEACH PLAYER TAKES TURNS MOVING/PLACING PIECES\n");
-    printf("TO SELECT SQUARES ON THE BOARD, GIVE INPUT AS CO ORDINATE FORM, 1-8 ACROSS FOLLOWED BY 1-8 DOWN\n");
+    printf("TO SELECT SQUARES ON THE BOARD, GIVE INPUT AS CO ORDINATE FORM, 1-8 ACROSS FOLLOWED BY 1-8 DOWN EG 1 5\n");
     printf("YOU CAN ONLY MOVE A STACK AS MANY SQUARES AS IT HAS PIECES\n");
     printf("YOU LOSE WHEN YOU CANNOT PLACE A PIECE OR MOVE A STACK\n");
     printf("ENJOY\n");

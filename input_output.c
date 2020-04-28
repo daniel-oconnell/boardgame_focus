@@ -1,10 +1,6 @@
 //
-// Created by Lili on 26/03/2020.
-//
-
-//
-// Created by Lili on 24/03/2020.
-//
+// Created by daniel oconnell: date of completion, April 28th 2020
+// function: to implement input/output functions for the focus board game
 
 #include <stdio.h>
 #include "input_output.h"
@@ -39,4 +35,9 @@ void print_board()
         }
         printf("|\n");
     }
+}
+
+void inv()    //function to print invalid choice to the screen
+{
+    printf("INVALID CHOICE\n");
 }

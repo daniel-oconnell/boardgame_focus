@@ -1,6 +1,6 @@
 //
-// Created by Lili on 24/03/2020.
-//
+// Created by daniel oconnell: date of completion, April 28th 2020
+// header file for game_init.c
 
 #ifndef FOCUS_GAME_INIT_H
 #define FOCUS_GAME_INIT_H
@@ -31,16 +31,9 @@ typedef struct player
 {
     //the color associated with the player
     color player_color;
-    char p_name[10];
+    char p_name[10];    //player name
     int adv_cap;
-    int own_kpt;
-    /*
-     * A player should also be characterized by:
-     * name,
-     * number of adversary's pieces captured,
-     * number of own pieces kept.
-     *
-    */
+    int own_kpt;    //counts for the pieces captured by the player
 }player;
 
 // A piece
