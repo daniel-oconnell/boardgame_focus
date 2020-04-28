@@ -10,7 +10,7 @@
 int main()    //main function
 {
     int not_ended=1;
-    int count=0;
+    unsigned int count=0;
     // declaration of the players and the board
     player players[PLAYERS_NUM];
     printf("WELCOME TO FOCUS\n");

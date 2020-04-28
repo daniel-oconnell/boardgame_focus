@@ -13,14 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9259ead4-f316-4131-bdda-77a5545a7a91" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Focus.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Focus.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_init.c" beforeDir="false" afterPath="$PROJECT_DIR$/game_init.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_init.h" beforeDir="false" afterPath="$PROJECT_DIR$/game_init.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_turn.c" beforeDir="false" afterPath="$PROJECT_DIR$/game_turn.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_turn.h" beforeDir="false" afterPath="$PROJECT_DIR$/game_turn.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output.c" beforeDir="false" afterPath="$PROJECT_DIR$/input_output.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output.h" beforeDir="false" afterPath="$PROJECT_DIR$/input_output.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +94,7 @@
       <workItem from="1587675534150" duration="20525000" />
       <workItem from="1587992094923" duration="2067000" />
       <workItem from="1588031295417" duration="532000" />
-      <workItem from="1588074919936" duration="4326000" />
+      <workItem from="1588074919936" duration="5190000" />
     </task>
     <servers />
   </component>
